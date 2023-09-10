@@ -1,15 +1,15 @@
-import { useState } from "react";
+// import { useState } from "react";
+import { useValue } from "./postContext";
 
 export const Navbar = () => {
   // remove this and get the value from context
-  const [savedPosts, setSavedPosts] = useState([]);
-
-  const [showSavedList, setShowSavedList] = useState(false);
+ const {savedPosts,showSavedList,setShowSavedList,reSet,count}=useValue();
 
   return (
     <div className="navbar">
       <span onClick={() => setShowSavedList(!showSavedList)}>
-        Saved Posts: {/* show length of saved posts here */}
+        Saved Posts: 
+        {count}
       </span>
       {showSavedList && (
         <div className="saved-list">
@@ -21,7 +21,7 @@ export const Navbar = () => {
           ))}
         </div>
       )}
-      <button>Reset</button>
+      <button onClick={reSet}>Reset</button>
     </div>
   );
 };

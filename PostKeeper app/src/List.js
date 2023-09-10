@@ -1,6 +1,10 @@
 import { posts } from "./data";
+import { useValue } from "./postContext";
+
 
 export const List = () => {
+  const {countInc}=useValue();
+
   return (
     <div className="list">
       {posts.map((p) => (
@@ -10,6 +14,7 @@ export const List = () => {
           <img
             src="https://cdn-icons-png.flaticon.com/512/102/102279.png"
             alt="save"
+            onClick={()=>countInc(p)}
           />
         </div>
       ))}
